@@ -1,0 +1,214 @@
+#include <stdio.h>
+#include <math.h>
+#include <locale.h>
+#include <string.h>
+
+ // Protótipos
+ // Temperatura
+ double celsius_kelvin(double);
+ double kelvin_celsius(double);
+ double celsius_fahrenheit(double);
+ double fahrenheit_celsius(double);
+ double kelvin_fahrenheit(double);
+ double fahrenheit_kelvin(double);
+ // Distância
+ double polegadas_cm(double);
+ double cm_polegadas(double);
+ double pes_cm(double);
+ double cm_pes(double);
+ double jardas_m(double);
+ double m_jardas(double);
+ double milhas_km(double);
+ double km_milhas(double);
+ double mm_polegadas(double);
+ double polegadas_mm(double);
+ double m_pes(double);
+ double pes_m(double);
+
+
+int main(void) {
+    setlocale(LC_ALL, "Portuguese");
+    double aux, x, r;
+    int conversor, tipo;
+
+    while(aux != 10) {
+        printf("-------------------------------------------------\n");
+        printf("     Entre com o tipo de conversão desejada: \n");
+        printf("-------------------------------------------------\n");
+        printf("\n1 -> Temperatura\n");
+        printf("2 -> Distância\n");
+        printf("3 -> Moeda\n");
+        printf("4 -> Altura\n");
+        printf("5 -> Peso\n");
+        printf("6 -> Finalizar\n");
+        scanf("%d", &tipo);
+
+        switch(tipo){
+            case(1):
+            printf("-------------------------------------------------\n");
+            printf("\t   Conversor de Temperaturas:\n");
+            printf("-------------------------------------------------\n");
+            printf("\n1 -> Celsius - Kelvin\n");
+            printf("2 -> Kelvin - Celsius\n");
+            printf("3 -> Celsius - Fahrenheit\n");
+            printf("4 -> Fahrenheit - Celsius\n");
+            printf("5 -> Kelvin - Fahrenheit\n");
+            printf("6 -> Fahrenheit - Kelvin\n");
+            printf("7 -> Sair\n");
+
+            scanf("%d", &conversor);
+            switch(conversor) {
+                case 1:
+                printf("Entre com o valor da temperatura em Celsius: ");
+                scanf("%lf", &x);
+                r = celsius_kelvin(x);
+                printf("%.2f graus Kelvin.\n", r);
+                break;
+
+                case 2:
+                printf("Entre com o valor da temperatura em Kelvin: ");
+                scanf("%lf", &x);
+                r = kelvin_celsius(x);
+                printf("%.2f graus Celsius.\n", r);
+                break;
+
+                case 3:
+                printf("Entre com o valor da temperatura em Celsius: ");
+                scanf("%lf", &x);
+                r = celsius_fahrenheit(x);
+                printf("%.2f graus Fahrenheit.\n", r);
+                break;
+
+                case 4:
+                printf("Entre com o valor da temperatura em Fahrenheit: ");
+                scanf("%lf", &x);
+                r = fahrenheit_celsius(x);
+                printf("%.2f graus Celsius.\n", r);
+                break;
+
+                case 5:
+                printf("Entre com o valor da temperatura em Kelvin: ");
+                scanf("%lf", &x);
+                r = kelvin_fahrenheit(x);
+                printf("%.2f graus Fahrenheit.\n", r);
+                break;
+
+                case 6:
+                printf("Entre com o valor da temperatura em Fahrenheit: ");
+                scanf("%lf", &x);
+                r = fahrenheit_kelvin(x);
+                printf("%.2f graus Kelvin.\n", r);
+                break;
+
+                case 7:
+                break;
+
+                default:
+                printf("Numero invalido, tente novamente!\n\n");
+            }
+            break;
+
+            case(2):
+            printf("-------------------------------------------------\n");
+            printf("\t   Conversor de Distâncias:\n");
+            printf("-------------------------------------------------\n");
+            printf("\n1 -> Polegadas - Centímetros\n");
+            printf("2 -> Centímetros - Polegadas\n");
+            printf("3 -> Pés - Centímetros\n");
+            printf("4 -> Centímetros - Pés\n");
+
+            scanf("%d", &conversor);
+            switch(conversor) {
+                case(1):
+                printf("Entre com o valor da distância em polegadas: ");
+                scanf("%lf", &x);
+                r = polegadas_cm(x);
+                printf("%.2f centímetros.\n", r);
+                break;
+
+                case(2):
+                printf("Entre com o valor da distância em centímetros: ");
+                scanf("%lf", &x);
+                r = cm_polegadas(x);
+                printf("%.2f polegadas.\n", r);
+                break;
+
+                default:
+                printf("A opção é inválida. Por favor, tente novamente!");
+            }
+            break;
+
+            case(6):
+            break;
+
+        default:
+            printf("A opção é inválida. Por favor, tente novamente!");
+            break;
+        }
+
+    }
+
+    return 0;
+ }
+
+ double celsius_kelvin(double v) {
+    return(v + 273.15);
+}
+
+double kelvin_celsius(double v) {
+    return(v - 273.15);
+}
+
+double celsius_fahrenheit(double v) {
+    return((v * 1.8) + 32);
+}
+
+double fahrenheit_celsius(double v) {
+    return((v - 32) * 0.5556);
+}
+
+double kelvin_fahrenheit(double v) {
+    return((v - 273.15) * 1.8 + 32);
+}
+
+double fahrenheit_kelvin(double v) {
+    return((v - 32) * 0.5567 + 273.15);
+}
+
+double polegadas_cm(double v) {
+    return(v * 2.54);
+}
+double cm_polegadas(double v) {
+    return(v / 2.54);
+}
+double pes_cm(double v) {
+    return(v * 30.48);
+}
+double cm_pes(double v) {
+    return(v / 30.48);
+}
+double jardas_m(double v){
+    return(v / 1.094);
+}
+double m_jardas(double v){
+    return(v * 1.094);
+}
+double km_milhas(double v) {
+    return(v / 1.609);
+}
+double milhas_km(double v) {
+    return(v * 1.609);
+}
+double mm_polegadas(double v){
+    return(v / 25.4);
+}
+double polegadas_mm(double v){
+    return(v * 25.4);
+}
+double m_pes(double v){
+    return(v * 3.281);
+}
+double pes_m(double v){
+    return(v / 3.281);
+}
+
