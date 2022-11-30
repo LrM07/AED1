@@ -1,0 +1,522 @@
+#include <stdio.h>
+#include <math.h>
+#include <locale.h>
+#include <string.h>
+
+// Protótipos
+// Temperatura
+double celsius_kelvin(double);
+double kelvin_celsius(double);
+double celsius_fahrenheit(double);
+double fahrenheit_celsius(double);
+double kelvin_fahrenheit(double);
+double fahrenheit_kelvin(double);
+// Distância
+double polegadas_cm(double);
+double cm_polegadas(double);
+double pes_cm(double);
+double cm_pes(double);
+double jardas_m(double);
+double m_jardas(double);
+double milhas_km(double);
+double km_milhas(double);
+double mm_polegadas(double);
+double polegadas_mm(double);
+double m_pes(double);
+double pes_m(double);
+// Moeda
+double real_dolar(double);
+double dolar_real(double);
+double real_euro(double);
+double euro_real(double);
+double euro_dolar(double);
+double dolar_euro(double);
+double real_yen(double);
+double yen_real(double);
+double dolar_yen(double);
+double yen_dolar(double);
+double euro_yen(double);
+double yen_euro(double);
+double libra_real(double);
+double real_libra(double);
+double libra_euro(double);
+double euro_libra(double);
+double libra_dolar(double);
+double dolar_libra(double);
+double libra_yen(double);
+double yen_libra(double);
+
+int main(void)
+{
+    setlocale(LC_ALL, "Portuguese");
+    double aux, x, r, aux1;
+    int conversor, tipo;
+
+    while (aux != 10)
+    {
+        printf("-------------------------------------------------\n");
+        printf("     Entre com o tipo de conversão desejada: \n");
+        printf("-------------------------------------------------\n");
+        printf("\n1 -> Temperatura\n");
+        printf("2 -> Distância\n");
+        printf("3 -> Moeda\n");
+        printf("4 -> Altura\n");
+        printf("5 -> Peso\n");
+        printf("6 -> Finalizar\n");
+        scanf("%d", &tipo);
+
+        
+        if (tipo == 6)
+        {
+            printf("\nOBRIGADO POR UTILIZAR O PROGRAMA!\n");
+            return 0;
+        }
+        
+        
+        switch (tipo)
+        {
+            
+        // Temperatura
+        
+        case (1):
+            printf("-------------------------------------------------\n");
+            printf("\t   Conversor de Temperaturas:\n");
+            printf("-------------------------------------------------\n");
+            printf("\n1 -> Celsius - Kelvin\n");
+            printf("2 -> Kelvin - Celsius\n");
+            printf("3 -> Celsius - Fahrenheit\n");
+            printf("4 -> Fahrenheit - Celsius\n");
+            printf("5 -> Kelvin - Fahrenheit\n");
+            printf("6 -> Fahrenheit - Kelvin\n");
+            printf("7 -> Sair\n");
+
+            scanf("%d", &conversor);
+            switch (conversor)
+            {
+            case 1:
+                printf("Entre com o valor da temperatura em Celsius: ");
+                scanf("%lf", &x);
+                r = celsius_kelvin(x);
+                printf("%.2f graus Kelvin.\n", r);
+                break;
+
+            case 2:
+                printf("Entre com o valor da temperatura em Kelvin: ");
+                scanf("%lf", &x);
+                r = kelvin_celsius(x);
+                printf("%.2f graus Celsius.\n", r);
+                break;
+
+            case 3:
+                printf("Entre com o valor da temperatura em Celsius: ");
+                scanf("%lf", &x);
+                r = celsius_fahrenheit(x);
+                printf("%.2f graus Fahrenheit.\n", r);
+                break;
+
+            case 4:
+                printf("Entre com o valor da temperatura em Fahrenheit: ");
+                scanf("%lf", &x);
+                r = fahrenheit_celsius(x);
+                printf("%.2f graus Celsius.\n", r);
+                break;
+
+            case 5:
+                printf("Entre com o valor da temperatura em Kelvin: ");
+                scanf("%lf", &x);
+                r = kelvin_fahrenheit(x);
+                printf("%.2f graus Fahrenheit.\n", r);
+                break;
+
+            case 6:
+                printf("Entre com o valor da temperatura em Fahrenheit: ");
+                scanf("%lf", &x);
+                r = fahrenheit_kelvin(x);
+                printf("%.2f graus Kelvin.\n", r);
+                break;
+
+            case 7:
+                break;
+
+            default:
+                printf("Numero invalido, tente novamente!\n\n");
+            }
+            break;
+            
+        // Distância
+
+        case (2):
+            printf("-------------------------------------------------\n");
+            printf("\t   Conversor de Distâncias:\n");
+            printf("-------------------------------------------------\n");
+            printf("\n1 -> Polegadas - Centímetros\n");
+            printf("2 -> Centímetros - Polegadas\n");
+            printf("3 -> Pés - Centímetros\n");
+            printf("4 -> Centímetros - Pés\n");
+            printf("5 -> Jardas - Metros\n");
+            printf("6 -> Metros - Jardas\n");
+            printf("7 -> Kilometros - Milhas\n");
+            printf("8 -> Milhas- Kilometros\n");
+            printf("9 -> Polegadas - Milimetros\n");
+            printf("10 -> Milimetros - Polegadas\n");
+            printf("11 -> Pés - Metros\n");
+            printf("12 -> Metros- Pés\n");
+
+            scanf("%d", &conversor);
+            switch (conversor)
+            {
+            case (1):
+                printf("Entre com o valor da distância em polegadas: ");
+                scanf("%lf", &x);
+                r = polegadas_cm(x);
+                printf("%.2f centímetros.\n", r);
+                break;
+
+            case (2):
+                printf("Entre com o valor da distância em centímetros: ");
+                scanf("%lf", &x);
+                r = cm_polegadas(x);
+                printf("%.2f polegadas.\n", r);
+                break;
+
+            case (3):
+                printf("Entre com o valor de pés em centímetros: ");
+                scanf("%lf", &x);
+                r = pes_cm(x);
+                printf("%.2f centimetros.\n", r);
+                break;
+
+            case (4):
+                printf("entre com o valor em centimetros: ");
+                scanf("%lf", &x);
+                r = cm_pes(x);
+                printf("%.2f pés.\n ", r);
+                break;
+
+            case (5):
+                printf("entre com o valor em jardas: ");
+                scanf("%lf", &x);
+                r = jardas_m(x);
+                printf("%.2f metros.\n", r);
+                break;
+
+            case (6):
+                printf("entre com o valor em metros: ");
+                scanf("%lf", &x);
+                r = m_jardas(x);
+                printf("%.2f jardas.\n", r);
+                break;
+
+            case (7):
+                printf("entre com o valor em kilometros: ");
+                scanf("%lf", &x);
+                r = km_milhas(x);
+                printf("%.2f milhas.\n", r);
+                break;
+
+            case (8):
+                printf("entre com o valor em milhas: ");
+                scanf("%lf", &x);
+                r = milhas_km(x);
+                printf("%.2f kilometros.\n", r);
+                break;
+
+            case (9):
+                printf("entre com o valor em polegadas: ");
+                scanf("%lf", &x);
+                r = polegadas_mm(x);
+                printf("%.2f milimetros. \n", r);
+                break;
+
+            case (10):
+                printf("entre com valor em milimetros: ");
+                scanf("%lf", &x);
+                r = mm_polegadas(x);
+                printf("%.2f polegadas. \n", r);
+                break;
+
+            case (11):
+                printf("entre com o valor em pés: ");
+                scanf("%lf", &x);
+                r = pes_m(x);
+                printf("%.2f metros. \n", r);
+                break;
+
+            case (12):
+                printf("entre com o valor em metros: ");
+                scanf("%lf", &x);
+                r = m_pes(x);
+                printf("%.2f pés. \n", r);
+                break;
+
+            default:
+                printf("A opção é inválida. Por favor, tente novamente!");
+            }
+            break;
+            
+        // Moeda
+        
+        case(3):
+            printf("-----------------------------------------------------------\n");
+            printf("\t           Conversor de Moedas:\n");
+            printf("Observação: Câmbio do dia 29/11/2022 (aproximadamente 12h)\n");
+            printf("-----------------------------------------------------------\n");
+            printf("\n1 -> Real - Dólar Americano\n");
+            printf("2 -> Dólar Americano - Real\n");
+            printf("3 -> Real - Euro\n");
+            printf("4 -> Euro - Real\n");
+            printf("5 -> Euro - Dólar Americano\n");
+            printf("6 -> Dólar Americano - Euro\n");
+            printf("7 -> Real - Iene Japonês\n");
+            printf("8 -> Iene Japonês - Real\n");
+            printf("9 -> Dólar Americano - Iene Japonês\n");
+            printf("10 -> Iene Japonês - Dólar Americano\n");
+            printf("11 -> Euro - Iene Japonês\n");
+            printf("12 -> Iene Japonês - Euro\n");
+            printf("13 -> Libra Esterlina - Real\n");
+            printf("14 -> Real - Libra Esterlina\n");
+            printf("15 -> Libra Esterlina - Euro\n");
+            printf("16 -> Euro - Libra Esterlina\n");
+            printf("17 -> Libra Esterlina - Dólar Americano\n");
+            printf("18 -> Dólar Americano - Libra Esterlina\n");
+            printf("19 -> Libra Esterlina - Iene Japonês\n");
+            printf("20 -> Iene Japonês - Libra Esterlina\n");
+            
+
+            scanf("%d", &conversor);
+            switch (conversor) 
+            {
+            case (1):
+                printf("Entre com o valor em reais: ");
+                scanf("%lf", &x);
+                r = real_dolar(x);
+                printf("%.2f dólares americanos.\n", r);
+                break;
+                
+            case (2):
+                printf("Entre com o valor em dólares americanos: ");
+                scanf("%lf", &x);
+                r = dolar_real(x);
+                printf("%.2f reais.\n", r);
+                break;
+                
+            case (3):
+                printf("Entre com o valor em reais: ");
+                scanf("%lf", &x);
+                r = real_euro(x);
+                printf("%.2f euros.\n", r);
+                break;
+                
+            case (4):
+                printf("Entre com o valor em euros: ");
+                scanf("%lf", &x);
+                r = euro_real(x);
+                printf("%.2f reais.\n", r);
+                break;
+                
+            case (5):
+                printf("Entre com o valor em euros: ");
+                scanf("%lf", &x);
+                r = euro_dolar(x);
+                printf("%.2f dólares americanos.\n", r);
+                break;
+                
+            case (6):
+                printf("Entre com o valor em dólares americanos: ");
+                scanf("%lf", &x);
+                r = dolar_euro(x);
+                printf("%.2f euros.\n", r);
+                break;
+                
+            case (7):
+                printf("Entre com o valor em reais: ");
+                scanf("%lf", &x);
+                r = real_yen(x);
+                printf("%.2f ienes.\n", r);
+                break;
+                
+            case (8):
+                printf("Entre com o valor em ienes: ");
+                scanf("%lf", &x);
+                r = yen_real(x);
+                printf("%.2f reais.\n", r);
+                break;
+                
+            default:
+                printf("A opção é inválida. Por favor, tente novamente!");
+            }
+            break;
+
+        case (6):
+            printf("\nOBRIGADO POR UTILIZAR O PROGRAMA\n");
+            break;
+
+        default:
+            printf("A opção é inválida. Por favor, tente novamente!");
+            break;
+        }
+    }
+
+    return 0;
+}
+
+double celsius_kelvin(double v)
+{
+    return (v + 273.15);
+}
+
+double kelvin_celsius(double v)
+{
+    return (v - 273.15);
+}
+
+double celsius_fahrenheit(double v)
+{
+    return ((v * 1.8) + 32);
+}
+
+double fahrenheit_celsius(double v)
+{
+    return ((v - 32) * 0.5556);
+}
+
+double kelvin_fahrenheit(double v)
+{
+    return ((v - 273.15) * 1.8 + 32);
+}
+
+double fahrenheit_kelvin(double v)
+{
+    return ((v - 32) * 0.5567 + 273.15);
+}
+
+double polegadas_cm(double v)
+{
+    return (v * 2.54);
+}
+double cm_polegadas(double v)
+{
+    return (v / 2.54);
+}
+double pes_cm(double v)
+{
+    return (v * 30.48);
+}
+double cm_pes(double v)
+{
+    return (v / 30.48);
+}
+double jardas_m(double v)
+{
+    return (v / 1.094);
+}
+double m_jardas(double v)
+{
+    return (v * 1.094);
+}
+double km_milhas(double v)
+{
+    return (v / 1.609);
+}
+double milhas_km(double v)
+{
+    return (v * 1.609);
+}
+double mm_polegadas(double v)
+{
+    return (v / 25.4);
+}
+double polegadas_mm(double v)
+{
+    return (v * 25.4);
+}
+double m_pes(double v)
+{
+    return (v * 3.281);
+}
+double pes_m(double v)
+{
+    return (v / 3.281);
+}
+
+// Moeda
+double real_dolar(double v)
+{
+    return (v / 5.3073);
+}
+double dolar_real(double v)
+{
+    return (v * 5.3073);
+}
+double real_euro(double v)
+{
+    return (v / 5.4848);
+}
+double euro_real(double v)
+{
+    return (v * 5.4848);
+}
+double euro_dolar(double v)
+{
+    return (v * 1.0327);
+}
+double dolar_euro(double v)
+{
+    return (v / 1.0327);
+}
+double real_yen(double v)
+{
+    return (v * 26.1570);
+}
+double yen_real(double v)
+{
+    return (v / 26.1570);
+}
+double dolar_yen(double v)
+{
+    return (v * 138.75);
+}
+double yen_dolar(double v)
+{
+    return (v / 138.75);
+}
+double euro_yen(double v)
+{
+    return (v * 138.40);
+}
+double yen_euro(double v)
+{
+    return (v / 138.40);
+}
+double libra_real(double v)
+{
+    return (v * 6.3423);
+}
+double real_libra(double v)
+{
+    return (v / 6.3423);
+}
+double libra_euro(double v)
+{
+    return (v * 1.1575);
+}
+double euro_libra(double v)
+{
+    return (v / 1.1575);
+}
+double libra_dolar(double v)
+{
+    return (v * 1.1964);
+}
+double dolar_libra(double v)
+{
+    return (v / 1.1964);
+}
+double libra_yen(double v)
+{
+    return (v * 1.6604);
+}
+double yen_libra(double v)
+{
+    return (v / 1.6604);
+}
