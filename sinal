@@ -1,0 +1,44 @@
+#include <SoftwareSerial.h>
+
+SoftwareSerial mySerial(8,9);
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+
+  mySerial.begin(9600);
+
+  Serial.println("Iniciando ...");
+  delay(5000);
+
+  //mySerial.println("AT+COPS=?");
+  // updateSerial();
+  mySerial.println("AT");
+  updateSerial();
+  mySerial.println("AT+CSQ");
+  updateSerial();
+  mySerial.println("AT+CCID");
+  updateSerial();
+  mySerial.println("AT+CREG?");
+  updateSerial();
+ 
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  updateSerial();
+}
+
+void updateSerial()
+{
+  delay(500);
+
+  while(Serial.available())
+  {
+      mySerial.write(Serial.read());
+  }
+  while(mySerial.available())
+  {
+      Serial.write(mySerial.read());
+  }
+}
